@@ -40,7 +40,8 @@ Representación gráfica donde cada intervalo R-R se grafica contra el siguiente
  - **CVI:**  Índice de actividad vagal
 ---
 ### b) Adquisición de la señal ECG
-![Electrodos](Captura de pantalla 2026-05-18 233906.png)
+![Captura de pantalla 2026-05-18 233906.png](Captura de pantalla 2026-05-18 233906.png)
+
 *Esquema colocación de electrodos*
 
 Se registró la señal electrocardiográfica de un sujeto durante 4 minutos:
