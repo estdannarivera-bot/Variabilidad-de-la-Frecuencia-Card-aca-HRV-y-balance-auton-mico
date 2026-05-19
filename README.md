@@ -44,14 +44,56 @@ Representación gráfica donde cada intervalo R-R se grafica contra el siguiente
 Se registró la señal ECG de un sujeto durante 4 minutos:
 - **0–2 min:** reposo absoluto (inmóvil y en silencio)
 - **2–4 min:** lectura en voz alta de un texto
-
+  
+La frecuencia de muestreo utilizada fue de **500 Hz**, adecuada para capturar el complejo QRS del ECG. La adquisición se realizó con NI-DAQmx en modo finito, guardando la señal cruda y la filtrada en archivos `.txt`.
+ 
 ## Parte B 
 ### c) Pre-procesamiento de la señal
 **Filtro IIR Butterworth pasa banda:**
-- Frecuencias de corte: 0.5 Hz – 40 Hz
-- Orden: 4
-- Implementado con condiciones iniciales en 0 (`lfilter`)
-La señal filtrada se dividió en dos segmentos de 2 minutos. En cada segmento se detectaron los picos R con umbral dinámico (60% del máximo) y distancia mínima de 0.3 s entre picos.
+Se diseñó un filtro Butterworth pasa banda de orden 4 con frecuencias de corte 0.5 Hz y 40 Hz, implementado con condiciones iniciales en 0 (`lfilter`), para eliminar línea base y ruido muscular.
+ 
+*Fragmento de código – filtro IIR:*
+```python
+# FILTRO IIR PASA BANDA ECG
+fc_low  = 0.5
+fc_high = 40
+orden   = 4
+ 
+b, a  = butter(orden, [fc_low/(fs/2), fc_high/(fs/2)], btype='bandpass')
+ecg_f = lfilter(b, a, senal_total)
+```
+**Segmentación y detección de picos R:**
+La señal filtrada se dividió en dos segmentos de 2 minutos. En cada segmento se detectaron los picos R con umbral del 60% del valor máximo y distancia mínima de 0.3 s entre picos, obteniendo así la serie R-R en milisegundos.
+ 
+*Fragmento de código – segmentación y picos R:*
+```python
+n2m = int(2 * 60 * fs)
+n15 = int(15 * fs)
+ 
+seg1, t1 = ecg_f[:n2m],      t_total[:n2m]
+seg2, t2 = ecg_f[n2m:2*n2m], t_total[n2m:2*n2m]
+ 
+def picos_R(seg, fs):
+    p, _ = find_peaks(seg, height=0.6*np.max(seg), distance=int(0.3*fs))
+    return p
+ 
+p1, p2 = picos_R(seg1, fs), picos_R(seg2, fs)
+rr1    = np.diff(p1) / fs * 1000
+rr2    = np.diff(p2) / fs * 1000
+```
+
+**ECG filtrada – Reposo (2 min completos):**
+![ECG](ECG_REPOSO.png)
+
+**ECG filtrada – Lectura en voz alta (2 min completos):**
+![ECG](ECG_LECTURA.png)
+
+**ECG filtrada – Reposo (muestra 15 s):**
+
+
+**ECG filtrada – Lectura en voz alta (muestra 15 s):**
+
+
  ---
  ### d) Análisis de la HRV en el dominio del tiempo
  Con los intervalos R-R de cada segmento se calcularon y compararon los parámetros básicos de la HRV:
