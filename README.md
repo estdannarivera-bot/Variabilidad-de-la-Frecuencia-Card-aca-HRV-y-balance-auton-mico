@@ -89,10 +89,10 @@ rr2    = np.diff(p2) / fs * 1000
 ![ECG](ECG_LECTURA.png)
 
 **ECG filtrada – Reposo (muestra 15 s):**
-
+![ECG](ECG_REPOSO15.png)
 
 **ECG filtrada – Lectura en voz alta (muestra 15 s):**
-
+![ECG](ECG_LECTURA15.png)
 
  ---
  ### d) Análisis de la HRV en el dominio del tiempo
