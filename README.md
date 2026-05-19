@@ -8,7 +8,7 @@
 
 ---
 
-![algoritmoEMG](DiagramaDeFlujo.png)
+![algoritmoEMG](DiagramaDeFluo.png)
 
 ---
 ##  Introducción
