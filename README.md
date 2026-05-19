@@ -128,3 +128,5 @@ print(f"  Lectura → Media R-R: {np.mean(rr2):.2f} ms | SDNN: {np.std(rr2, ddof
 ![Serie RR](R_R.png)
  
 ---
+
+## Parte C
