@@ -101,3 +101,23 @@ rr2    = np.diff(p2) / fs * 1000
 - **Media R-R:** valor promedio de los intervalos entre picos R consecutivos, expresado en milisegundos. Inversamente relacionado con la frecuencia cardíaca: una media R-R mayor indica un corazón más lento y mayor predominio parasimpático.
 - **SDNN:** desviación estándar de los intervalos R-R. Refleja la variabilidad total de la señal. Un SDNN alto indica mayor variabilidad y mejor regulación autonómica; un SDNN bajo sugiere predominio simpático o menor flexibilidad del sistema.
 La comparación entre ambos segmentos permite evidenciar si la tarea de lectura en voz alta produce un cambio relevante en el balance autonómico respecto al reposo.
+
+*Fragmento de código – HRV dominio del tiempo:*
+```python
+print("\n===== HRV – DOMINIO DEL TIEMPO =====")
+print(f"  Reposo  → Media R-R: {np.mean(rr1):.2f} ms | SDNN: {np.std(rr1, ddof=1):.2f} ms")
+print(f"  Lectura → Media R-R: {np.mean(rr2):.2f} ms | SDNN: {np.std(rr2, ddof=1):.2f} ms")
+```
+ 
+**Resultados:**
+ 
+| Parámetro | Reposo | Lectura |
+|-----------|--------|---------|
+| Media R-R (ms) | 660.02 | 625.99 |
+| SDNN (ms) | 56.39 | 31.71 |
+ 
+**Serie R-R comparada:**
+ 
+![Serie RR](R_R.png)
+ 
+---
