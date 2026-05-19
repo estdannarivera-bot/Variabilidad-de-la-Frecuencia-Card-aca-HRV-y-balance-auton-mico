@@ -41,6 +41,7 @@ Representación gráfica donde cada intervalo R-R se grafica contra el siguiente
 ---
 ### b) Adquisición de la señal ECG
 ![ELECTRODOS](ELECTRODOS.png)
+
 *Esquema colocación de electrodos*
 
 Se registró la señal electrocardiográfica de un sujeto durante 4 minutos:
