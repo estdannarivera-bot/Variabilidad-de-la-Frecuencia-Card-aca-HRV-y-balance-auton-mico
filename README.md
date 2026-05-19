@@ -17,3 +17,25 @@ En este laboratorio se adquirió una señal ECG de 4 minutos dividida en dos con
 El procesamiento de la señal incluyó filtrado IIR pasa banda, detección de picos R, cálculo de intervalos R-R y análisis tanto en el dominio del tiempo (media y SDNN) como mediante el diagrama de Poincaré (SD1, SD2, CSI, CVI). El objetivo es evidenciar, a través de estos parámetros, el cambio en el balance autonómico entre ambas condiciones.
  
 ---
+
+### Parte A 
+#### a) Fundamento teórico
+
+### Sistema nervioso autónomo
+El sistema nervioso autónomo (SNA) regula funciones involuntarias del organismo a través de dos ramas:
+ 
+- **Simpático:** activa al organismo ante situaciones de estrés o demanda cognitiva. Aumenta la frecuencia cardíaca y reduce la variabilidad (intervalos R-R más cortos y uniformes).
+- **Parasimpático (vagal):** domina en estados de reposo. Disminuye la frecuencia cardíaca y aumenta la variabilidad (intervalos R-R más largos y variables).
+### HRV – Variabilidad de la Frecuencia Cardíaca
+La HRV mide las fluctuaciones en el tiempo entre latidos consecutivos (intervalos R-R), extraídos de la señal ECG. Es un indicador no invasivo del balance autonómico.
+ 
+**Parámetros en el dominio del tiempo:**
+- **Media R-R:** promedio de los intervalos entre picos R consecutivos (ms). Inversamente relacionado con la frecuencia cardíaca.
+- **SDNN:** desviación estándar de los intervalos R-R. Refleja la variabilidad total de la señal.
+### Diagrama de Poincaré
+Representación gráfica donde cada intervalo R-R se grafica contra el siguiente (RRₙ vs RRₙ₊₁). La dispersión de la nube de puntos permite estimar el balance simpático/parasimpático mediante:
+ - **SD1:**  Variabilidad a corto plazo → tono vagal
+ - **SD2:**  Variabilidad a largo plazo → simpático + parasimpático
+ - **CSI:**  Índice de actividad simpática
+ - **CVI:**  Índice de actividad vagal
+
