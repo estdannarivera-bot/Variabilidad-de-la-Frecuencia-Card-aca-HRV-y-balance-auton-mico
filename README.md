@@ -44,6 +44,10 @@ Representación gráfica donde cada intervalo R-R se grafica contra el siguiente
 
 *Esquema colocación de electrodos*
 
+- R: Debajo de la clavícula derecha.
+- L: Debajo de la clavícula izquierda.
+- F: Parte inferior del abdomen, borde inferior de la última costilla.
+  
 Se registró la señal electrocardiográfica de un sujeto durante 4 minutos:
 - **0–2 min:** reposo absoluto (inmóvil y en silencio)
 - **2–4 min:** lectura en voz alta de un texto
