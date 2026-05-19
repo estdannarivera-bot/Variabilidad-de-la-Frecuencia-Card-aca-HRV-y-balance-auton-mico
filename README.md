@@ -6,6 +6,11 @@
 **Universidad:** Universidad Militar Nueva Granada  
 **Estudiantes:** Danna Rivera, Duvan Paez
 
+---
+
+![algoritmoEMG](DIAGRAMADEFLUJO.png)
+
+---
 ##  Introducción
  
 El corazón no late a intervalos perfectamente regulares. Incluso en reposo, existe una variación natural en el tiempo entre latido y latido, conocida como variabilidad de la frecuencia cardíaca (HRV, por sus siglas en inglés). Esta variabilidad no es aleatoria: refleja el estado del sistema nervioso autónomo (SNA) y su influencia constante sobre el nodo sinusal del corazón.
