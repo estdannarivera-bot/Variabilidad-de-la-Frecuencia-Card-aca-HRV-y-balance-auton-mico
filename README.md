@@ -18,8 +18,8 @@ El procesamiento de la señal incluyó filtrado IIR pasa banda, detección de pi
  
 ---
 
-### Parte A 
-#### a) Fundamento teórico
+## Parte A 
+### a) Fundamento teórico
 
 ### Sistema nervioso autónomo
 El sistema nervioso autónomo (SNA) regula funciones involuntarias del organismo a través de dos ramas:
@@ -38,4 +38,24 @@ Representación gráfica donde cada intervalo R-R se grafica contra el siguiente
  - **SD2:**  Variabilidad a largo plazo → simpático + parasimpático
  - **CSI:**  Índice de actividad simpática
  - **CVI:**  Índice de actividad vagal
+---
+### b) Adquisición de la señal ECG
 
+Se registró la señal ECG de un sujeto durante 4 minutos:
+- **0–2 min:** reposo absoluto (inmóvil y en silencio)
+- **2–4 min:** lectura en voz alta de un texto
+
+## Parte B 
+### c) Pre-procesamiento de la señal
+**Filtro IIR Butterworth pasa banda:**
+- Frecuencias de corte: 0.5 Hz – 40 Hz
+- Orden: 4
+- Implementado con condiciones iniciales en 0 (`lfilter`)
+La señal filtrada se dividió en dos segmentos de 2 minutos. En cada segmento se detectaron los picos R con umbral dinámico (60% del máximo) y distancia mínima de 0.3 s entre picos.
+ ---
+ ### d) Análisis de la HRV en el dominio del tiempo
+ Con los intervalos R-R de cada segmento se calcularon y compararon los parámetros básicos de la HRV:
+ 
+- **Media R-R:** valor promedio de los intervalos entre picos R consecutivos, expresado en milisegundos. Inversamente relacionado con la frecuencia cardíaca: una media R-R mayor indica un corazón más lento y mayor predominio parasimpático.
+- **SDNN:** desviación estándar de los intervalos R-R. Refleja la variabilidad total de la señal. Un SDNN alto indica mayor variabilidad y mejor regulación autonómica; un SDNN bajo sugiere predominio simpático o menor flexibilidad del sistema.
+La comparación entre ambos segmentos permite evidenciar si la tarea de lectura en voz alta produce un cambio relevante en el balance autonómico respecto al reposo.
