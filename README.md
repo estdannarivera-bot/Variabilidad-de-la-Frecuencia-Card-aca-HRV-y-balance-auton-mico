@@ -78,8 +78,7 @@ La implementación computacional del filtro mediante `lfilter` corresponde matem
 
 $$
 y[n] =
-\frac{\sum_{k=0}^{M} b_k\,x[n-k]}
-{\sum_{k=1}^{N} a_k\,y[n-k]}
+\sum_{k=0}^{M} b_k\,x[n-k]-\sum_{k=1}^{N} a_k\,y[n-k]
 $$
 
 donde:
@@ -224,3 +223,25 @@ Obteniendo los siguientes resultados:
 En el diagrama de Poincaré del estado de reposo se observa una nube de puntos más concentrada alrededor de la elipse principal, indicando un comportamiento cardíaco más estable y organizado. Durante la lectura en voz alta los puntos presentan una mayor dispersión y aparecen distribuidos en una zona más amplia del gráfico, reflejando cambios más variables entre intervalos R-R consecutivos debido a la actividad realizada.
 
 Además, el parámetro SD1 disminuyó durante la lectura (46.17 a 13.24), indicando una reducción de la variabilidad de corto plazo, el índice CSI también aumentó (1.343 a 3.235), sugiriendo una mayor influencia simpática durante la lectura en voz alta. Aunque aparecen algunos puntos aislados en ambas gráficas, posiblemente asociados a ruido o detecciones atípicas, el comportamiento general coincide con el efecto esperado del sistema nervioso autónomo durante cada condición.
+
+---
+
+## Discusión
+
+Los resultados obtenidos evidenciaron cambios en la variabilidad cardíaca entre el estado de reposo y la lectura en voz alta, durante la lectura se observó una disminución de la media R-R y del parámetro SDNN, indicando un aumento de la frecuencia cardíaca y una menor variabilidad. 
+
+En el análisis de Poincaré también se observaron diferencias entre ambas condiciones. Durante la lectura los puntos mostraron una distribución más dispersa y el parámetro SD1 disminuyó considerablemente, mientras que el índice CSI aumentó, sugiriendo una mayor activación simpática. Aunque la señal presentó algunos puntos atípicos asociados posiblemente a ruido o movimiento, el comportamiento general coincide con la respuesta fisiológica esperada del sistema nervioso autónomo.
+
+---
+
+## Conclusiones
+
+- Se logró adquirir y procesar correctamente una señal ECG mediante DAQ y Python.
+
+- El filtro IIR Butterworth permitió reducir ruido y mejorar la detección de los picos R.
+
+- Durante la lectura en voz alta se observó una disminución de la variabilidad cardíaca, evidenciada por la reducción de SDNN y SD1.
+
+- Los diagramas de Poincaré permitieron visualizar diferencias entre el estado de reposo y la actividad de lectura.
+
+- Los resultados obtenidos fueron coherentes con el comportamiento esperado del sistema nervioso autónomo.
