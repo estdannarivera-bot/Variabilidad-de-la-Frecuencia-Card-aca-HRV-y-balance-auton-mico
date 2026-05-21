@@ -61,9 +61,36 @@ La frecuencia de muestreo utilizada fue de **500 Hz**, adecuada para capturar el
  
 ## Parte B 
 ### c) Pre-procesamiento de la señal
-**Filtro IIR Butterworth pasa banda:**
-Se diseñó un filtro Butterworth pasa banda de orden 4 con frecuencias de corte 0.5 Hz y 40 Hz, implementado con condiciones iniciales en 0 (`lfilter`), para eliminar línea base y ruido muscular.
- 
+**Filtro:**
+Se diseñó un filtro IIR Butterworth pasa banda de orden 4 con frecuencias de corte de 0.5 Hz y 40 Hz, utilizando una frecuencia de muestreo de 500 Hz,  implementado con condiciones iniciales en 0, para eliminar línea base y ruido muscular.
+
+Los coeficientes obtenidos para el filtro fueron:
+
+$$
+b = [2.14\times10^{-3},\ 0,\ -8.56\times10^{-3},\ 0,\ 1.28\times10^{-2},\ 0,\ -8.56\times10^{-3},\ 0,\ 2.14\times10^{-3}]
+$$
+
+$$
+a = [1,\ -6.70,\ 19.68,\ -33.15,\ 35.05,\ -23.83,\ 10.18,\ -2.50,\ 2.69\times10^{-1}]
+$$
+
+La implementación computacional del filtro mediante `lfilter` corresponde matemáticamente a la siguiente ecuación en diferencias:
+
+$$
+y[n] =
+\frac{\sum_{k=0}^{M} b_k\,x[n-k]}
+{\sum_{k=1}^{N} a_k\,y[n-k]}
+$$
+
+donde:
+
+- $x[n]$ corresponde a la señal ECG original,
+- $y[n]$ corresponde a la señal filtrada,
+- $b_k$ son los coeficientes del numerador,
+- $a_k$ son los coeficientes del denominador.
+
+En esta ecuación se reemplazan los coeficientes obtenidos del diseño Butterworth para implementar el filtro digital IIR aplicado a la señal ECG.
+
 *Fragmento de código – filtro IIR:*
 ```python
 # FILTRO IIR PASA BANDA ECG
