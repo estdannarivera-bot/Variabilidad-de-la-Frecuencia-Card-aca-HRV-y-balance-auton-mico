@@ -138,7 +138,16 @@ print(f"  Lectura → Media R-R: {np.mean(rr2):.2f} ms | SDNN: {np.std(rr2, ddof
 
 ### e) Diagrama de Poincaré
 
-El diagrama de Poincaré es una herramienta de análisis no lineal, empleada en evaluar la dinámica de la variabilidad de la frecuencia cardíaca (HRV), con este método, cada intervalo R-R se grafica contra el intervalo siguiente, construyendo una nube de puntos cuya dispersión refleja el comportamiento autonómico del corazón. La forma y distribución de los puntos permiten estimar parámetros asociados a la actividad simpática y parasimpática:
+El diagrama de Poincaré es una herramienta de análisis no lineal, empleada en evaluar la dinámica de la variabilidad de la frecuencia cardíaca (HRV), con este método, cada intervalo R-R se grafica contra el intervalo siguiente, construyendo una nube de puntos cuya dispersión refleja el comportamiento autonómico del corazón. La forma y distribución de los puntos permiten estimar parámetros asociados a la actividad simpática y parasimpática. La obtención del diagrama se ralizó mediante:
+
+
+```python
+
+```
+
+![POINCARÉ_REPOSO](POINCARÉ_REPOSO.png)
+
+![POINCARÉ_LECTURA](POINCARÉ_LECTURA.png)
 
 - **SD1:** representa la variabilidad de corto plazo y se relaciona principalmente con la actividad parasimpática (vagal).
 - **SD2:** representa la variabilidad de largo plazo y refleja la regulación autonómica global.
@@ -153,4 +162,13 @@ def poincare(rr):
     sd2 = np.std((rr[1:]+rr[:-1])/np.sqrt(2), ddof=1)
     return sd1, sd2, sd2/sd1, np.log10(sd1*sd2)
 ```
+
+Obteniendo los siguientes resultados: 
+
+| Parámetro | Reposo | Lectura |
+|-----------|--------|---------|
+| SD1 | 46.17 | 13.24 |
+| SD2 | 62.03 | 42.84 |
+| CSI | 1.343 | 3.235 |
+| CVI | 3.457 | 2.754 |
 
