@@ -131,6 +131,12 @@ print(f"  Lectura → Media R-R: {np.mean(rr2):.2f} ms | SDNN: {np.std(rr2, ddof
 **Serie R-R comparada:**
  
 ![Serie RR](R_R.png)
+
+Los resultados obtenidos muestran una disminución de la media R-R durante la lectura en voz alta, pasando de 660.02 ms a 625.99 ms, esto indica un incremento de la frecuencia cardíaca asociado a una mayor activación fisiológica durante la actividad cognitiva y motora.
+
+Asimismo, el parámetro SDNN presentó una reducción considerable durante la lectura (56.39 ms → 31.71 ms), evidenciando una disminución de la variabilidad cardíaca total. Este comportamiento es consistente con un predominio simpático y una menor modulación parasimpática.
+
+En la serie R-R comparada también puede observarse que durante el reposo los intervalos presentan una mayor dispersión y variabilidad, mientras que durante la lectura los intervalos se vuelven más uniformes y compactos, reflejando una regulación cardíaca más rígida.
  
 ---
 
