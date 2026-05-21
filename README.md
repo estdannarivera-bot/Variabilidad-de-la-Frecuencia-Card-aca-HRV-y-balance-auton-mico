@@ -148,7 +148,35 @@ El diagrama de Poincaré es una herramienta de análisis no lineal, empleada en 
 
 
 ```python
+def plot_poincare(rr, sd1, sd2, csi, cvi, titulo, color):
 
+    ang  = np.linspace(0, 2*np.pi, 200)
+
+    e1   = np.array([ np.cos(np.pi/4), np.sin(np.pi/4)])
+    e2   = np.array([-np.sin(np.pi/4), np.cos(np.pi/4)])
+
+    elip = sd1 * np.outer(np.sin(ang), e2) + \
+           sd2 * np.outer(np.cos(ang), e1)
+
+    cx, cy = np.mean(rr[:-1]), np.mean(rr[1:])
+
+    plt.figure(figsize=(6, 6))
+
+    plt.scatter(rr[:-1], rr[1:], s=12,
+                alpha=0.6, color=color)
+
+    plt.plot(cx + elip[:,0],
+             cy + elip[:,1],
+             'k--', linewidth=1.2)
+
+    plt.title(titulo)
+
+    plt.xlabel("RRₙ [ms]")
+    plt.ylabel("RRₙ₊₁ [ms]")
+
+    plt.grid(True)
+
+    plt.show()
 ```
 
 ![POINCARÉ_REPOSO](POINCARÉ_REPOSO.png)
@@ -178,3 +206,9 @@ Obteniendo los siguientes resultados:
 | CSI | 1.343 | 3.235 |
 | CVI | 3.457 | 2.754 |
 
+
+En el diagrama de Poincaré correspondiente al estado de reposo se observa una nube de puntos más dispersa y una elipse de mayor tamaño, indicando una mayor variabilidad cardíaca y predominio parasimpático.
+
+Por el contrario, durante la lectura en voz alta la nube de puntos se vuelve más compacta y alargada, evidenciando una disminución de la variabilidad de corto plazo. Esto se refleja principalmente en la reducción significativa del parámetro SD1 (46.17 → 13.24), asociado a una menor actividad vagal.
+
+Adicionalmente, el incremento del índice CSI durante la lectura (1.343 → 3.235) sugiere una mayor influencia simpática sobre la regulación cardíaca, coherente con el aumento de demanda cognitiva y motora generado por la actividad de lectura.
